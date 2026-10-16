@@ -851,6 +851,56 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
 .bl-verdict{margin:0;font-size:.95rem;color:var(--muted)}
 .bl-verdict b{color:var(--ink);font-weight:600}
 
+
+/* baremo en resultados */
+.res-seg{align-self:flex-start}
+.bar-wrap{display:flex;flex-direction:column;gap:12px}
+.bar-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.bar-head h3{font-size:var(--step-1);margin-top:4px}
+.bar-legend{display:flex;gap:8px;flex-wrap:wrap}
+.lg{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--panel);border:1px solid var(--line)}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lg.a{color:var(--teal)}.lg.a i{background:var(--teal)}
+.lg.d{color:var(--amber)}.lg.d i{background:var(--amber)}
+.bar-scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.baremo{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.76rem;min-width:520px}
+.baremo th,.baremo td{padding:1px 10px;line-height:1.45;text-align:center;border-bottom:1px solid var(--panel-2)}
+.baremo thead th{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);background:var(--panel-2);padding:8px 10px;font-weight:500}
+.baremo thead th.gv{color:var(--ink);background:var(--blue-soft)}
+.baremo tbody th{font-family:var(--f-mono);font-weight:500;color:var(--muted)}
+.baremo td.w,.baremo th.w{color:#B4BCC9}
+.baremo td.s{font-family:var(--f-mono);color:var(--muted)}
+.baremo tfoot th,.baremo tfoot td{font-size:.75rem;color:var(--muted);background:var(--panel-2)}
+.baremo tr.hit-a{background:var(--teal-soft)}
+.baremo tr.hit-d{background:var(--amber-soft)}
+.baremo .mark-a,.baremo .mark-d{position:relative;font-weight:700;color:#fff}
+.baremo .mark-a::before,.baremo .mark-d::before{content:"";position:absolute;left:50%;top:50%;width:26px;height:18px;border-radius:999px;transform:translate(-50%,-50%);z-index:0}
+.baremo .mark-a::before{background:var(--teal)}.baremo .mark-d::before{background:var(--amber)}
+.baremo .mark-a,.baremo .mark-d{z-index:1}
+.baremo td.mark-a,.baremo td.mark-d{isolation:isolate}
+.baremo td.mark-a::before,.baremo td.mark-d::before{z-index:-1}
+.baremo .mark-s{font-weight:700;color:var(--ink)}
+.slide.on #rvBar:not([hidden]) .mark-a::before,.slide.on #rvBar:not([hidden]) .mark-d::before{animation:markPulse 2.2s ease-in-out infinite}
+@keyframes markPulse{0%,100%{box-shadow:0 0 0 0 rgba(27,42,65,.25)}50%{box-shadow:0 0 0 6px rgba(27,42,65,0)}}
+
+
+.gloss{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gloss div{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-width:0}
+.gloss b{font-family:var(--f-mono);font-size:.78rem;color:var(--on);background:var(--ink);border-radius:6px;padding:2px 7px;flex:none}
+.gloss span{font-size:.84rem;color:var(--muted);line-height:1.4}
+@media (max-width:760px){.gloss{grid-template-columns:minmax(0,1fr)}}
+
+
+.team{grid-column:1/-1}
+.team-l{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.92rem;font-weight:500}
+.team-l li{white-space:nowrap}
+.consent-note{display:flex;gap:14px;align-items:flex-start;background:var(--blue-soft);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:14px 18px;max-width:820px}
+.consent-note p{margin:0;color:var(--muted)}
+.consent-note b{color:var(--ink)}
+.cn-ic{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:var(--on);font-size:.8rem}
+.chart-why{margin:2px 0 6px;font-size:.88rem;color:var(--muted)}
+.chart-why b{color:var(--ink)}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
@@ -882,7 +932,7 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
     <h1 class="cover-title">Cuestionario de Conductas <em>Antisociales-Delictivas</em></h1>
     <p class="lead">Contextualización de la prueba e interpretación de perfil.</p>
     <div class="meta">
-      <div><div class="k">Integrantes</div><div class="v">[Nombres de los integrantes]</div></div>
+      <div class="team"><div class="k">Integrantes</div><ul class="team-l"><li>Isabel Cristina Calderón</li><li>Jorge Andrés Roldán</li><li>Vanessa Tobón Medina</li><li>María Paulina Frias</li><li>Manuela Chavarria Pérez</li></ul></div>
       <div><div class="k">Programa</div><div class="v">Psicología · Universidad Católica Luis Amigó</div></div>
       <div><div class="k">Docente</div><div class="v">Camilo Martínez Agudelo</div></div>
       <div><div class="k">Fecha</div><div class="v">17 de octubre de 2026</div></div>
@@ -1246,12 +1296,13 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
       <p class="lead">Un único encuentro, en cinco momentos.</p>
     </div>
     <ol class="tl" id="timeline">
-      <li><span class="tl-dot">1</span><b>Contexto de la prueba</b><span>Propósito, tipo de preguntas y duración</span></li>
-      <li><span class="tl-dot">2</span><b>Datos sociodemográficos</b><span>Edad, escolaridad, familia y residencia</span></li>
-      <li><span class="tl-dot">3</span><b>Examen mental</b><span>Dentro de parámetros normales</span></li>
-      <li><span class="tl-dot">4</span><b>Consentimiento informado</b><span>Leído y firmado · Ley 1090 de 2006</span></li>
+      <li><span class="tl-dot">1</span><b>Consentimiento y asentimiento</b><span>De los padres y del menor · Ley 1090 de 2006</span></li>
+      <li><span class="tl-dot">2</span><b>Contexto de la prueba</b><span>Propósito, tipo de preguntas y duración</span></li>
+      <li><span class="tl-dot">3</span><b>Datos sociodemográficos</b><span>Edad, escolaridad, familia y residencia</span></li>
+      <li><span class="tl-dot">4</span><b>Examen mental</b><span>Dentro de parámetros normales</span></li>
       <li><span class="tl-dot">5</span><b>Cuestionario A-D</b><span>Autoaplicado · 40 de 40 respondidas</span></li>
     </ol>
+    <div class="consent-note"><span class="cn-ic" aria-hidden="true">✓</span><p><b>Al ser menor de edad (17 años),</b> antes de iniciar se firmaron el <b>Consentimiento Informado de los Padres</b> y el <b>Asentimiento Informado del Menor</b>, como lo exige la Ley 1090 de 2006.</p></div>
   </div>
 </section>
 
@@ -1324,21 +1375,42 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
       <div class="score a">
         <div class="top"><h3>Factor A · Antisocial</h3><span class="pill a">Bajo</span></div>
         <div class="nums">
-          <div><div class="k">PN</div><div class="v" data-count="4">4</div></div>
-          <div><div class="k">PC</div><div class="v" data-count="15">15</div></div>
-          <div><div class="k">S</div><div class="v" data-count="29">29</div></div>
+          <div><div class="k" title="Puntuación natural">PN</div><div class="v" data-count="4">4</div></div>
+          <div><div class="k" title="Puntuación percentil">PC</div><div class="v" data-count="15">15</div></div>
+          <div><div class="k" title="Puntuación típica S">S</div><div class="v" data-count="29">29</div></div>
         </div>
       </div>
       <div class="score d">
         <div class="top"><h3>Factor D · Delictivo</h3><span class="pill d">Promedio</span></div>
         <div class="nums">
-          <div><div class="k">PN</div><div class="v" data-count="1">1</div></div>
-          <div><div class="k">PC</div><div class="v" data-count="55">55</div></div>
-          <div><div class="k">S</div><div class="v" data-count="52">52</div></div>
+          <div><div class="k" title="Puntuación natural">PN</div><div class="v" data-count="1">1</div></div>
+          <div><div class="k" title="Puntuación percentil">PC</div><div class="v" data-count="55">55</div></div>
+          <div><div class="k" title="Puntuación típica S">S</div><div class="v" data-count="52">52</div></div>
         </div>
       </div>
     </div>
-    <div class="yes-list" id="yesList"></div>
+    <div class="gloss">
+      <div><b>PN</b><span>Puntuación natural: número de respuestas “Sí” en el factor.</span></div>
+      <div><b>PC</b><span>Puntuación percentil: porcentaje del grupo normativo que queda por debajo del evaluado.</span></div>
+      <div><b>S</b><span>Puntuación típica S: distancia frente a la media del grupo, que es 50.</span></div>
+    </div>
+    <div class="seg res-seg" role="tablist" aria-label="Ver resultados"><button class="on" data-rv="rvYes">Respuestas Sí</button><button data-rv="rvBar">Tabla de baremos</button></div>
+    <div id="rvYes"><div class="yes-list" id="yesList"></div></div>
+    <div id="rvBar" hidden><div class="bar-wrap">
+      <div class="bar-head">
+        <div><span class="k">Tabla 5 del manual · Normas A-D (11–19 años)</span><h3>Ubicación del evaluado en el baremo de varones</h3></div>
+        <div class="bar-legend"><span class="lg a"><i></i>Factor A: PN 4 → Pc 15 · S 29</span><span class="lg d"><i></i>Factor D: PN 1 → Pc 55 · S 52</span></div>
+      </div>
+      <div class="bar-scroll"><table class="baremo">
+        <thead><tr><th rowspan="2">Pc</th><th colspan="2" class="gv">Varones</th><th colspan="2" class="w">Mujeres</th><th rowspan="2">S</th></tr>
+        <tr><th class="gv">Antisocial</th><th class="gv">Delictivo</th><th class="w">Antisocial</th><th class="w">Delictivo</th></tr></thead>
+        <tbody><tr><th class="">99</th><td class="">20</td><td class="">13-20</td><td class="w">19-20</td><td class="w">9-20</td><td class="s ">97</td></tr><tr><th class="">98</th><td class=""></td><td class="">11-12</td><td class="w">18</td><td class="w">7-8</td><td class="s ">91</td></tr><tr><th class="">97</th><td class=""></td><td class="">10</td><td class="w">17</td><td class="w">6</td><td class="s ">87</td></tr><tr><th class="">96</th><td class="">19</td><td class=""></td><td class="w"></td><td class="w">5</td><td class="s ">85</td></tr><tr><th class="">95</th><td class="">18</td><td class="">7-9</td><td class="w">16</td><td class="w">3-4</td><td class="s ">83</td></tr><tr><th class="">90</th><td class="">16-17</td><td class="">5-6</td><td class="w">14-15</td><td class="w">2</td><td class="s ">76</td></tr><tr><th class="">85</th><td class="">15</td><td class="">4</td><td class="w">13</td><td class="w"></td><td class="s ">71</td></tr><tr><th class="">80</th><td class="">14</td><td class="">3</td><td class="w">12</td><td class="w">1</td><td class="s ">67</td></tr><tr><th class="">75</th><td class="">13</td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">63</td></tr><tr><th class="">70</th><td class="">12</td><td class="">2</td><td class="w">11</td><td class="w"></td><td class="s ">60</td></tr><tr><th class="">65</th><td class=""></td><td class=""></td><td class="w">10</td><td class="w"></td><td class="s ">58</td></tr><tr><th class="">60</th><td class="">11</td><td class=""></td><td class="w">9</td><td class="w"></td><td class="s ">55</td></tr><tr class="hit-d"><th class="mark-s">55</th><td class="">10</td><td class="mark-d">1</td><td class="w"></td><td class="w"></td><td class="s mark-s">52</td></tr><tr><th class="">50</th><td class=""></td><td class=""></td><td class="w">8</td><td class="w"></td><td class="s ">50</td></tr><tr><th class="">45</th><td class="">9</td><td class=""></td><td class="w">7</td><td class="w"></td><td class="s ">48</td></tr><tr><th class="">40</th><td class="">8</td><td class=""></td><td class="w">6</td><td class="w"></td><td class="s ">45</td></tr><tr><th class="">35</th><td class=""></td><td class=""></td><td class="w">5</td><td class="w">0</td><td class="s ">42</td></tr><tr><th class="">30</th><td class="">7</td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">40</td></tr><tr><th class="">25</th><td class="">6</td><td class=""></td><td class="w">4</td><td class="w"></td><td class="s ">37</td></tr><tr><th class="">20</th><td class="">5</td><td class="">0</td><td class="w">3</td><td class="w"></td><td class="s ">33</td></tr><tr class="hit-a"><th class="mark-s">15</th><td class="mark-a">4</td><td class=""></td><td class="w">2</td><td class="w"></td><td class="s mark-s">29</td></tr><tr><th class="">10</th><td class="">3</td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">24</td></tr><tr><th class="">5</th><td class="">2</td><td class=""></td><td class="w">1</td><td class="w"></td><td class="s ">17</td></tr><tr><th class="">4</th><td class=""></td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">15</td></tr><tr><th class="">3</th><td class="">1</td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">12</td></tr><tr><th class="">2</th><td class=""></td><td class=""></td><td class="w">0</td><td class="w"></td><td class="s ">9</td></tr><tr><th class="">1</th><td class="">0</td><td class=""></td><td class="w"></td><td class="w"></td><td class="s ">3</td></tr></tbody>
+        <tfoot><tr><th><i>N</i></th><td>404</td><td>402</td><td class="w">605</td><td class="w">605</td><td></td></tr>
+        <tr><th><i>M</i></th><td>9.65</td><td>1.91</td><td class="w">7.84</td><td class="w">0.73</td><td></td></tr>
+        <tr><th><i>DE</i></th><td>4.92</td><td>2.99</td><td class="w">4.80</td><td class="w">1.93</td><td></td></tr></tfoot>
+      </table></div>
+      <p class="cite">Se usa la columna de varones. Cada puntuación natural se busca en su columna y se lee, en la misma fila, el percentil (izquierda) y la puntuación S (derecha).</p>
+    </div></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
       
       <span class="cite">Los otros 35 ítems: No, incluido el ítem 38 (consumo de drogas). Sin omisiones ni dobles marcas.</span>
@@ -1354,7 +1426,7 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
       <h2 class="h2">Dónde se ubica frente a su grupo</h2>
     </div>
     <div class="chart-box">
-      <div class="k">Escala percentil · baremo de varones</div>
+      <div class="k">Escala percentil · baremo de varones</div><p class="chart-why"><b>Interpretación del percentil:</b> sirve para ver qué tanto se presentan estas conductas en el evaluado.</p>
       <div class="scale" id="pScale">
         <div class="bar"></div>
         <span class="tick" style="left:0">0</span><span class="tick" style="left:25%">25</span><span class="tick" style="left:50%">50</span><span class="tick" style="left:75%">75</span><span class="tick" style="left:100%">99</span>
@@ -1364,7 +1436,7 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
       </div>
     </div>
     <div class="chart-box">
-      <div class="k">Curva normal · puntuación S (media 50)</div>
+      <div class="k">Curva normal · puntuación S (media 50)</div><p class="chart-why"><b>Desviación de la media:</b> sirve para ver qué tan alejado se encuentra el evaluado de la media o el promedio para estas conductas.</p>
       <svg id="curve" viewBox="0 0 640 230" role="img" aria-label="Curva normal con el Factor A en S 29 y el Factor D en S 52"></svg>
     </div>
   </div>
@@ -1612,7 +1684,7 @@ body.mq-off .mq{height:0;border:0;overflow:hidden}
     <p class="quote">“Evaluar no es etiquetar: es comprender a tiempo para prevenir.”</p>
     <div class="thanks">¡Gracias!</div>
     <div class="ask">¿Preguntas?</div>
-    <p class="who">[Nombres de los integrantes] · Pruebas Objetivas · Universidad Católica Luis Amigó · Docente: Camilo Martínez Agudelo</p>
+    <p class="who">Isabel Cristina Calderón, Jorge Andrés Roldán, Vanessa Tobón Medina, María Paulina Frias y Manuela Chavarria Pérez<br>Pruebas Objetivas · Universidad Católica Luis Amigó · Docente: Camilo Martínez Agudelo</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
       <button class="btn-solid" data-go="portada">Volver al inicio</button>
     </div>
@@ -1770,6 +1842,7 @@ function pickMse(i){$$('#mseChips .chip').forEach((c,j)=>c.classList.toggle('on'
 pickMse(0);
 
 /* ---------- yes list ---------- */
+$$('[data-rv]').forEach(b=>b.onclick=()=>{$$('[data-rv]').forEach(x=>x.classList.toggle('on',x===b));['rvYes','rvBar'].forEach(id=>$('#'+id).hidden=id!==b.dataset.rv)});
 [3,5,7,17,22].forEach(n=>{const d=document.createElement('div');d.className='yes-item';d.innerHTML=`<span class="n">${n}</span><p>${items[n-1]}</p><span class="pill ${n<=20?'a':'d'}">${n<=20?'A':'D'}</span>`;$('#yesList').appendChild(d)});
 
 /* ---------- curve ---------- */
